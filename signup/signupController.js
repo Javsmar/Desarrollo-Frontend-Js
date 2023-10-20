@@ -2,7 +2,8 @@ import { createUser } from "./signupModel.js";
 
 // Controlador del formulario de registro
 export const signupController = (signupForm) => {
-  // Agrega un oyente de eventos para el envío del formulario y llama a la función 'validateForm'
+  // Agrega un oyente de eventos al formulario para detectar cuando se envía
+  // "signupForm" es el formulario HTML que se pasa como argumento a la función
   signupForm.addEventListener("submit", (event) => validateForm(event, signupForm));
 }
 
