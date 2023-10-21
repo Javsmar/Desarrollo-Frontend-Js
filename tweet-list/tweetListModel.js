@@ -2,18 +2,17 @@
 // con propiedades específicas.
 const transformTweets = (tweets) => {
   return tweets.map(tweet => ({
-    handler: tweet.author,        // Mapea el autor del tweet a la propiedad "handler".
-    date: new Date().toISOString(), // Genera la fecha actual en formato ISO y la asigna a "date".
+    handler: tweet.user.username,   // Mapea el autor del tweet a la propiedad "handler".
+    date: new Date().toISOString(),// Genera la fecha actual en formato ISO y la asigna a "date".
     message: tweet.message,      // Mapea el mensaje del tweet a la propiedad "message".
-    likes: tweet.likes.length,   // Calcula la cantidad de "likes" basada en la longitud de la lista de likes y la asigna a "likes".
-    photo: tweet.img,          // Mapea la imagen del tweet a la propiedad "photo".
     id: tweet.id                 // Mapea el identificador único del tweet a la propiedad "id".
   }))
 }
 
 // Esta función realiza una solicitud a una API para obtener una lista de tweets.
 export const getTweets = async () => {
-  const url = "http://localhost:8000/api/tweets"; // URL de la API de tweets
+  //?_expand=user" que es un query params que indica que se desea expandir la información relacionada con el usuario que la creo el tweet en la respuesta de la solicitud.
+  const url = "http://localhost:8000/api/tweets?_expand=user"; // URL de la API de tweets
   let parsedTweets = []; // Inicializa una variable para almacenar los tweets procesados.
 
   try {

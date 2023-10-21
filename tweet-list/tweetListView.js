@@ -5,9 +5,7 @@ export const buildTweet = (tweet) => {
   <a href="./tweetDetail.html?id=${tweet.id}">
     <span>Autor: ${tweet.handler}</span><br>           
     <span>Fecha: ${tweet.date}</span><br>                  
-    <img src="${tweet.photo}" alt="tweet image"> 
-    <p>${tweet.message}</p>           
-    <p>Likes: ${tweet.likes} likes</p>        
+    <p>${tweet.message}</p>                   
   </a>
 `;
 }
