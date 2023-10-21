@@ -1,11 +1,10 @@
+export const createTweet = async (message) => {
+  const url = "http://localhost:8000/api/tweets";
 
-export const createUser = async (email, password) => {
-  const url = "http://localhost:8000/auth/register";
+  const token = localStorage.getItem('token');
 
-  // Crea un objeto "body" con el correo electrónico y la contraseña proporcionados
   const body = {
-    username: email,
-    password: password,
+    message: message
   }
 
   let response;
@@ -16,7 +15,8 @@ export const createUser = async (email, password) => {
       body: JSON.stringify(body), // Convierte el objeto "body" a JSON
       headers: {
         "Content-type": "application/json", // Establece el encabezado "Content-type" para indicar que se envía JSON
-      },
+        'Authorization': `Bearer ${token}`
+      }
     });
 
     if (!response.ok) {
