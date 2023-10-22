@@ -10,5 +10,7 @@ export const buildUnauthorizedSession = () => {
 
 // Función para construir la interfaz de usuario de sesión autenticada
 export const buildAuthenticatedSession = () => {
-  return `<button>Cerrar sesión</button>`;
+  return `
+  <a href="./tweet-creation.html">create Tweet</a>
+  <button>Cerrar sesión</button>`;
 }
