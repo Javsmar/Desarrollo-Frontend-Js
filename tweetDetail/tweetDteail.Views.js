@@ -1,7 +1,6 @@
 export const buildTweet = (tweet) => {
     let tweetTemplate  = `
-    <span>Autor: ${tweet.handler}</span><br>                           
-    <img src="${tweet.photo}" alt="tweet image"> 
+    <span>Autor: ${tweet.handler}</span><br>                            
     <p>Tweet: ${tweet.message}</p>           
     `;
 

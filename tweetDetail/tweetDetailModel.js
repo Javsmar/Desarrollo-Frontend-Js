@@ -1,14 +1,13 @@
 const parseTweet = (tweet) => {
     return {
-        handler: tweet.author.toUpperCase(),
-        photo: tweet.img,
-        likes: tweet.likes,
-        message: tweet.message
+        handler: tweet.user.username,
+        message: tweet.message,
+        likes: []
     }
 };
 
 export const getTweet = async (tweetId) => {
-    const url = (`http://localhost:8000/api/tweets/${tweetId}`);
+    const url = (`http://localhost:8000/api/tweets/${tweetId}?_expand=user`);
     let tweet;
 
     try {
